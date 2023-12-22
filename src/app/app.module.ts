@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { TeamsComponent } from './teams/teams.component';
 import { GamesComponent } from './games/games.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { GamesComponent } from './games/games.component';
     HeaderComponent,
     FooterComponent,
     TeamsComponent,
-    GamesComponent
+    GamesComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
