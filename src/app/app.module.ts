@@ -6,10 +6,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
+import { StandingsModule } from './standings/standings.module';
+
 @NgModule({
   imports: [
     BrowserModule,
-    AppRoutingModule
+    StandingsModule,
+    AppRoutingModule,
   ],
   declarations: [
     AppComponent,
