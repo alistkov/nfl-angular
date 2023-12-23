@@ -2,10 +2,3 @@
 
 @tailwind base;
 @tailwind utilities;
-
-@layer utilities {
-  .standings-link-active {
-    @apply text-white;
-    @apply bg-blue-light;
-  }
-}
