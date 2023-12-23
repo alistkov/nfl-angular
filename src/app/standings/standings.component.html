@@ -1,3 +1,13 @@
-<a routerLink="conference">conference</a>
-<a routerLink="division">division</a>
+<nav class="flex justify-center mb-5">
+  <div
+    class="w-[200px] max-w-[50%] border border-blue-light text-center text-blue-light uppercase text-xs hover:bg-blue-light hover:text-white"
+    routerLinkActive="standings-link-active">
+    <a routerLink="conference" class="block p-2">Conference</a>
+  </div>
+  <div
+    class="w-[200px] max-w-[50%] border border-blue-light text-center text-blue-light uppercase text-xs hover:bg-blue-light hover:text-white"
+    routerLinkActive="standings-link-active">
+    <a routerLink="division" class="block p-2">Division</a>
+  </div>
+</nav>
 <router-outlet></router-outlet>
