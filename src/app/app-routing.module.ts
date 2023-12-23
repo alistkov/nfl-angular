@@ -15,6 +15,11 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+  declarations: [
+    TeamsComponent,
+    GamesComponent,
+    PageNotFoundComponent
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
