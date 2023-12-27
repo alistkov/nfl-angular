@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./page-not-found.component.css']
 })
 export class PageNotFoundComponent {
-  notFoundImage: string = 'assets/images/not-found.webp';
+  notFoundImage: string = 'assets/images/not-found.jpg';
 }
