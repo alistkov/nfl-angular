@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { standingNavigation } from '../shared/constants';
+import { Link } from '../shared/types';
 
 @Component({
   selector: 'nfl-standings',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./standings.component.css']
 })
 export class StandingsComponent {
-
+  standingsNavigation: Link[] = standingNavigation;
 }

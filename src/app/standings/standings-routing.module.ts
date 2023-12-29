@@ -20,11 +20,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  declarations: [
-    StandingsComponent,
-    ConferenceComponent,
-    DivisionComponent,
-  ],
+  declarations: [],
   exports: [RouterModule]
 })
 export class StandingsRoutingModule {}

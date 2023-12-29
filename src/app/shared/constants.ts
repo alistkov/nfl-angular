@@ -7,3 +7,8 @@ export const mainNavigation: Link[] = [
   { label: 'Teams', link: '/teams' },
   { label: 'Games', link: '/games' },
 ];
+
+export const standingNavigation: Link[] = [
+  { label: 'Conference', link: 'conference' },
+  { label: 'Division', link: 'division' },
+];
