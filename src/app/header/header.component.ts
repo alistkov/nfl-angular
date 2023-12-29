@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { mainNavigation } from '../shared/constants';
+import { Link } from '../shared/types';
 
 @Component({
   selector: 'nfl-header',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   logo: string = 'assets/images/logo.svg';
+  mainNavigation: Link[] = mainNavigation;
 }
