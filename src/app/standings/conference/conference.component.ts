@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CONFERENCES } from 'src/app/shared/constants';
 
 @Component({
   selector: 'nfl-conference',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./conference.component.css']
 })
 export class ConferenceComponent {
-
+  conferences = CONFERENCES;
 }
