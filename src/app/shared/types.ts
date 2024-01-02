@@ -15,7 +15,7 @@ export interface Team {
       "flag": string
     }
   }
-  "conference": "American Football Conference",
+  "conference": "American Football Conference" | "National Football Conference",
   "division": string
   "position": number
   "team": {
