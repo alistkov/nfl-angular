@@ -22,21 +22,21 @@ export class ConferenceTableComponent {
   getDivisionStandings() {
     this.loading = true;
     this.conferenceStandingsService.getDivisionStandings(1, 2023, this.division)
-      .subscribe(
-        (response) => {
+      .subscribe({
+        next: (response) => {
           if (response.errors) {
             this.error = Object.values(response.errors)[0] as string;
           }
           this.standings = response.response;
         },
-        (err) => {
+        error: (err) => {
           this.error = err.message;
         },
-        () => {
+        complete: () => {
           this.loading = false;
           this.loaded = true;
         }
-      );
+      });
   }
 
   calculatePtc(won: number, lost: number, ties: number): number {
