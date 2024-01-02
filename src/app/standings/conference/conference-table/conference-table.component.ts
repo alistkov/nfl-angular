@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Team } from '../../../shared/types'
 import { ConferenceStandingsService } from '../conference-standings.service';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'nfl-conference-table',
@@ -22,20 +23,24 @@ export class ConferenceTableComponent {
   getDivisionStandings() {
     this.loading = true;
     this.conferenceStandingsService.getDivisionStandings(1, 2023, this.division)
+      .pipe(
+        tap((response) => {
+          if (Object.values(response.errors).length !== 0) {
+            throw new Error(Object.values(response.errors)[0])
+          }
+        })
+      )
       .subscribe({
         next: (response) => {
-          if (response.errors) {
-            this.error = Object.values(response.errors)[0] as string;
-          }
           this.standings = response.response;
         },
         error: (err) => {
           this.error = err.message;
         },
-        complete: () => {
-          this.loading = false;
-          this.loaded = true;
-        }
+      })
+      .add(() => {
+        this.loading = false;
+        this.loaded = true;
       });
   }
 
