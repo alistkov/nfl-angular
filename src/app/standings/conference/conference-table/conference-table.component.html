@@ -39,7 +39,7 @@
       </tr>
     </ng-container>
     <ng-template #table>
-      <tr *ngFor="let team of standings!.response" class="text-xs">
+      <tr *ngFor="let team of standings!" class="text-xs">
         <td class="font-normal border-b border-gray-mid px-[20px] py-[10px] border-r-2">
           <a href="#" class="flex items-center">
             <img [src]="team.team.logo" [alt]="team.team.name" class="w-[24px] mr-2" />

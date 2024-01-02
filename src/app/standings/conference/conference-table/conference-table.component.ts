@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { DivisionStandings } from 'src/app/shared/types';
+import { Team } from '../../../shared/types'
+import { ConferenceStandingsService } from '../conference-standings.service';
 
 @Component({
   selector: 'nfl-conference-table',
@@ -9,18 +10,41 @@ import { DivisionStandings } from 'src/app/shared/types';
 export class ConferenceTableComponent {
   @Input({ required: true }) division!: string;
 
-  error: Error | null = null
+  error: string | null = null
   loaded: boolean = false;
   loading: boolean = false;
-  standings: DivisionStandings | null = null;
+  standings: Team[] | [] = [];
+
+  constructor(
+    private conferenceStandingsService: ConferenceStandingsService,
+  ) {}
 
   getDivisionStandings() {
-    console.log('OK');
-
+    this.loading = true;
+    this.conferenceStandingsService.getDivisionStandings(1, 2023, this.division)
+      .subscribe(
+        (response) => {
+          if (response.errors) {
+            this.error = Object.values(response.errors)[0] as string;
+          }
+          this.standings = response.response;
+        },
+        (err) => {
+          this.error = err.message;
+        },
+        () => {
+          this.loading = false;
+          this.loaded = true;
+        }
+      );
   }
 
   calculatePtc(won: number, lost: number, ties: number): number {
-    return 1;
+    const totalGames = won + lost + ties
+    if (ties === 0) {
+      return won / totalGames
+    }
+    return ((won + ties) / totalGames + (won + ties) / totalGames) / 2
   }
 
   calculatePtcFromString(record: string): number {

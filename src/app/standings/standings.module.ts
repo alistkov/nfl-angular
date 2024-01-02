@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http'
 
 import { StandingsRoutingModule } from './standings-routing.module';
 import { StandingsComponent } from './standings.component';
@@ -11,6 +12,7 @@ import { ConferenceTableComponent } from './conference/conference-table/conferen
   imports: [
     CommonModule,
     StandingsRoutingModule,
+    HttpClientModule,
   ],
   declarations: [
     StandingsComponent,
