@@ -1,1 +1,6 @@
-<p>division works!</p>
+<div *ngFor="let conference of conferences">
+  <div class="bg-gray-light text-sm py-3.5 px-[20px] border-b border-bg-gray-dark">
+    {{ conference.title | uppercase }}
+  </div>
+  <nfl-division-table *ngFor="let division of conference.divisions" [division]="division"></nfl-division-table>
+</div>

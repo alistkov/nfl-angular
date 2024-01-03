@@ -9,8 +9,8 @@ export const mainNavigation: Link[] = [
 ];
 
 export const standingNavigation: Link[] = [
-  { label: 'Conference', link: 'conference' },
   { label: 'Division', link: 'division' },
+  { label: 'Conference', link: 'conference' },
 ];
 
 export const CONFERENCES = [
