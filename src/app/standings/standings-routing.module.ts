@@ -11,7 +11,7 @@ const routes: Routes = [
     path: 'standings',
     component: StandingsComponent,
     children: [
-      { path: '', redirectTo: 'conference', pathMatch: 'full' },
+      { path: '', redirectTo: 'division', pathMatch: 'full' },
       { path: 'conference', component: ConferenceComponent, title: `${appName} | Conferences standings` },
       { path: 'division', component: DivisionComponent, title: `${appName} | Division standings` }
     ]
