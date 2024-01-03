@@ -1,6 +1,10 @@
-<nav class="flex justify-center mb-5">
-  <a *ngFor="let link of standingsNavigation" [routerLink]="[link.link]"
-    class="block p-2 w-[200px] max-w-[50%] border border-blue-light text-center text-blue-light uppercase text-xs hover:bg-blue-light hover:text-white ease-in duration-200"
-    routerLinkActive="text-white bg-blue-light">{{ link.label }}</a>
+<nav class="mb-5">
+  <ul class="flex justify-center">
+    <li *ngFor="let link of standingsNavigation" class="bg-white w-[200px] max-w-[50%]">
+      <a [routerLink]="[link.link]"
+        class="block p-2 border border-blue-light text-center text-blue-light uppercase text-xs hover:bg-blue-light hover:text-white ease-in duration-200"
+        routerLinkActive="text-white bg-blue-light">{{ link.label }}</a>
+    </li>
+  </ul>
 </nav>
 <router-outlet></router-outlet>
