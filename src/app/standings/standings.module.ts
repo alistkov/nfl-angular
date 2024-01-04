@@ -6,8 +6,6 @@ import { StandingsRoutingModule } from './standings-routing.module';
 import { StandingsComponent } from './standings.component';
 import { ConferenceComponent } from './conference/conference.component';
 import { DivisionComponent } from './division/division.component';
-import { ConferenceTableComponent } from './conference/conference-table/conference-table.component';
-import { DivisionTableComponent } from './division/division-table/division-table.component';
 import { StandingsTableComponent } from './standings-table/standings-table.component';
 
 @NgModule({
@@ -20,8 +18,6 @@ import { StandingsTableComponent } from './standings-table/standings-table.compo
     StandingsComponent,
     ConferenceComponent,
     DivisionComponent,
-    ConferenceTableComponent,
-    DivisionTableComponent,
     StandingsTableComponent,
   ],
 })
