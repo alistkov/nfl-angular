@@ -8,6 +8,7 @@ import { ConferenceComponent } from './conference/conference.component';
 import { DivisionComponent } from './division/division.component';
 import { ConferenceTableComponent } from './conference/conference-table/conference-table.component';
 import { DivisionTableComponent } from './division/division-table/division-table.component';
+import { StandingsTableComponent } from './standings-table/standings-table.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { DivisionTableComponent } from './division/division-table/division-table
     DivisionComponent,
     ConferenceTableComponent,
     DivisionTableComponent,
+    StandingsTableComponent,
   ],
 })
 export class StandingsModule {}

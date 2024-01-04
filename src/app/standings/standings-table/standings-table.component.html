@@ -1,0 +1,92 @@
+<table class="w-full bg-white mb-4">
+  <tr class="font-normal text-xs">
+    <th class="text-left font-normal border-b border-gray-mid px-[20px] py-[15px] border-r-2 w-[300px]">
+      {{ someVar | uppercase}}
+    </th>
+    <ng-container *ngIf="loaded; else loadingButton">
+      <th class="font-normal border-b border-gray-mid px-[20px] py-[15px]">W</th>
+      <th class="font-normal border-b border-gray-mid px-[20px] py-[15px]">L</th>
+      <th class="font-normal border-b border-gray-mid px-[20px] py-[15px]">T</th>
+      <th class="font-normal border-b border-gray-mid px-[20px] py-[15px]">PCT</th>
+      <th class="font-normal border-b border-gray-mid px-[20px] py-[15px]">PF</th>
+      <th class="font-normal border-b border-gray-mid px-[20px] py-[15px]">PA</th>
+      <th class="font-normal border-b border-gray-mid px-[20px] py-[15px] border-r">Net Pts</th>
+      <th class="font-normal border-b border-gray-mid px-[20px] py-[15px]">Home</th>
+      <th class="font-normal border-b border-gray-mid px-[20px] py-[15px] border-r">Road</th>
+      <th class="font-normal border-b border-gray-mid px-[20px] py-[15px]">Div</th>
+      <th class="font-normal border-b border-gray-mid px-[20px] py-[15px] border-r">Pct</th>
+      <th class="font-normal border-b border-gray-mid px-[20px] py-[15px]">Conf</th>
+      <th class="font-normal border-b border-gray-mid px-[20px] py-[15px] border-r">Pct</th>
+      <th class="font-normal border-b border-gray-mid px-[20px] py-[15px]">Strk</th>
+    </ng-container>
+    <ng-template #loadingButton>
+      <th class="font-normal border-b border-gray-mid px-[20px] py-[15px]" colspan="14">
+        <button (click)="loadStandings()" class="text-blue-light">Show standings</button>
+      </th>
+    </ng-template>
+  </tr>
+  <ng-container *ngIf="loading">
+    <tr>
+      <td class="px-[20px] py-[15px] text-xs text-center" colspan="15">Loading...</td>
+    </tr>
+  </ng-container>
+  <ng-container *ngIf="error; else table">
+    <tr>
+      <td class="px-[20px] py-[15px] text-xs" colspan="15">
+        {{ error }}
+      </td>
+    </tr>
+  </ng-container>
+  <ng-template #table>
+    <tr *ngFor="let team of standings!" class="text-xs">
+      <td class="font-normal border-b border-gray-mid px-[20px] py-[10px] border-r-2">
+        <a href="#" class="flex items-center">
+          <img [src]="team.team.logo" [alt]="team.team.name" class="w-[24px] mr-2" />
+          {{ team.team.name }}
+        </a>
+      </td>
+      <td class="text-center font-normal border-b border-gray-mid px-[20px] py-[10px]">
+        {{ team.won }}
+      </td>
+      <td class="text-center font-normal border-b border-gray-mid px-[20px] py-[10px]">
+        {{ team.lost }}
+      </td>
+      <td class="text-center font-normal border-b border-gray-mid px-[20px] py-[10px]">
+        {{ team.ties }}
+      </td>
+      <td class="text-center font-normal border-b border-gray-mid px-[20px] py-[10px]">
+        {{ calculatePtc(team.won, team.lost, team.ties).toFixed(3) }}
+      </td>
+      <td class="text-center font-normal border-b border-gray-mid px-[20px] py-[10px]">
+        {{ team.points.for }}
+      </td>
+      <td class="text-center font-normal border-b border-gray-mid px-[20px] py-[10px]">
+        {{ team.points.against }}
+      </td>
+      <td class="text-center font-normal border-b border-gray-mid px-[20px] py-[10px] border-r">
+        {{ team.points.difference }}
+      </td>
+      <td class="text-center font-normal border-b border-gray-mid px-[20px] py-[10px]">
+        {{ team.records.home }}
+      </td>
+      <td class="text-center font-normal border-b border-gray-mid px-[20px] py-[10px] border-r">
+        {{ team.records.road }}
+      </td>
+      <td class="text-center font-normal border-b border-gray-mid px-[20px] py-[10px]">
+        {{ team.records.division }}
+      </td>
+      <td class="text-center font-normal border-b border-gray-mid px-[20px] py-[10px] border-r">
+        {{ calculatePtcFromString(team.records.division).toFixed(3) }}
+      </td>
+      <td class="text-center font-normal border-b border-gray-mid px-[20px] py-[10px]">
+        {{ team.records.conference }}
+      </td>
+      <td class="text-center font-normal border-b border-gray-mid px-[20px] py-[10px] border-r">
+        {{ calculatePtcFromString(team.records.conference).toFixed(3) }}
+      </td>
+      <td class="text-center font-normal border-b border-gray-mid px-[20px] py-[10px]">
+        {{ team.streak }}
+      </td>
+    </tr>
+  </ng-template>
+</table>
