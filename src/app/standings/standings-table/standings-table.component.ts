@@ -10,8 +10,8 @@ import { StandingsService } from '../standings.service';
 })
 export class StandingsTableComponent {
 
-  @Input({ required: true }) someVar!: string;
-  @Input({ required: true }) confOrDiv!: string;
+  @Input({ required: true }) standingsTitle!: string;
+  @Input({ required: true }) standingsType!: string;
 
   error: string | null = null
   loaded: boolean = false;
@@ -24,7 +24,7 @@ export class StandingsTableComponent {
 
   loadStandings() {
     this.loading = true;
-    this.standingsService.getStandings({ league: 1, season: 2023, [this.confOrDiv]: this.someVar })
+    this.standingsService.getStandings({ league: 1, season: 2023, [this.standingsType]: this.standingsTitle })
       .pipe(
         tap((response) => {
           if (Object.values(response.errors).length !== 0) {

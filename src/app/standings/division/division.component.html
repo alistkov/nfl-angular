@@ -2,6 +2,6 @@
   <div class="bg-gray-light text-sm py-3.5 px-[20px] border-b border-bg-gray-dark">
     {{ conference.title | uppercase }}
   </div>
-  <nfl-standings-table confOrDiv="division" *ngFor="let division of conference.divisions"
-    [someVar]="division"></nfl-standings-table>
+  <nfl-standings-table standingsType="division" *ngFor="let division of conference.divisions"
+    [standingsTitle]="division"></nfl-standings-table>
 </div>
