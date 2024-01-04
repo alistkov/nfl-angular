@@ -59,3 +59,15 @@ export interface DivisionStandings {
   "results": number
   "response": Team[]
 }
+
+export interface ConferenceStandings {
+  "get": string
+  "parameters": {
+    "league": string | number
+    "season": string | number
+    "conference": string
+  },
+  "errors": [],
+  "results": number
+  "response": Team[]
+}
