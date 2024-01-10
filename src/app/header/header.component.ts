@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
-import { mainNavigation } from '../shared/constants';
-import { Link } from '../shared/types';
+import { RouterLink } from '@angular/router';
+import { NgFor } from '@angular/common';
+
+import { mainNavigation } from 'src/app/shared/constants';
+import { Link } from 'src/app/shared/types';
 
 @Component({
+  standalone: true,
+  imports: [RouterLink, NgFor],
   selector: 'nfl-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
   logo: string = 'assets/images/logo.svg';
