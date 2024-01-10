@@ -8,7 +8,7 @@ import { DivisionComponent } from './division/division.component';
 
 const routes: Routes = [
   {
-    path: 'standings',
+    path: '',
     component: StandingsComponent,
     children: [
       { path: '', redirectTo: 'division', pathMatch: 'full' },
@@ -20,7 +20,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  declarations: [],
   exports: [RouterModule]
 })
 export class StandingsRoutingModule {}

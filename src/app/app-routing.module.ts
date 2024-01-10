@@ -8,9 +8,23 @@ import { appName } from './shared/constants';
 
 const routes: Routes = [
   { path: '', redirectTo: 'standings', pathMatch: 'full' },
-  { path: 'teams', component: TeamsComponent, title: `${appName} | Teams` },
-  { path: 'games', component: GamesComponent, title: `${appName} | Games` },
-  { path: '**', component: PageNotFoundComponent, title: `${appName} | Page not found` }
+  {
+    path: 'standings',
+    loadChildren: () => import('src/app/standings/standings-routing.module').then(m => m.StandingsRoutingModule)
+  },
+  {
+    path: 'teams',
+    loadChildren: () => import('src/app/teams/teams-routing.module').then(m => m.TeamsRoutingModule),
+  },
+  {
+    path: 'games',
+    loadChildren: () => import('src/app/games/games-routing.module').then(m => m.GamesRoutingModule),
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent,
+    title: `${appName} | Page not found`
+  }
 ];
 
 @NgModule({
