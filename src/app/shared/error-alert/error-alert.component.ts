@@ -6,7 +6,6 @@ import { NgComponentOutlet } from '@angular/common';
   standalone: true,
   imports: [NgComponentOutlet],
   templateUrl: './error-alert.component.html',
-  styleUrls: ['./error-alert.component.css']
 })
 export class ErrorAlertComponent {
 
