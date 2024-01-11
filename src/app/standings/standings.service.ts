@@ -11,13 +11,13 @@ export class StandingsService {
     private http: HttpClient,
   ) {}
 
-  getStandings(params: any) {
+  fetchData(path: string, params: any) {
     let searchParams = new HttpParams();
     for (const key of Object.keys(params)) {
       searchParams = searchParams.append(key, params[key]);
     }
 
-    return this.http.get<ConferenceStandings | DivisionStandings>('https://v1.american-football.api-sports.io/standings', {
+    return this.http.get<ConferenceStandings | DivisionStandings>(`https://v1.american-football.api-sports.io/${path}`, {
       headers: new HttpHeaders({
         'x-rapidapi-host': '',
         'x-rapidapi-key': ''
