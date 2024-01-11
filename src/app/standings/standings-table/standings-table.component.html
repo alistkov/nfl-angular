@@ -33,7 +33,9 @@
   </tr>
   <tr *ngIf="error">
     <td class="px-[20px] py-[15px] text-xs" colspan="15">
-      {{ error }}
+      <nfl-error-alert>
+        {{ error }}
+      </nfl-error-alert>
     </td>
   </tr>
   <tr *ngFor="let team of standings!" class="text-xs">

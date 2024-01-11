@@ -5,10 +5,17 @@ import { tap } from 'rxjs';
 import { Team } from 'src/app/shared/types';
 import { StandingsService } from 'src/app/standings/standings.service';
 import { LoaderComponent } from 'src/app/shared/loader/loader.component';
+import { ErrorAlertComponent } from 'src/app/shared/error-alert/error-alert.component';
 
 @Component({
   standalone: true,
-  imports: [NgIf, NgFor, UpperCasePipe, LoaderComponent],
+  imports: [
+    NgIf,
+    NgFor,
+    UpperCasePipe,
+    LoaderComponent,
+    ErrorAlertComponent,
+  ],
   selector: 'nfl-standings-table',
   templateUrl: './standings-table.component.html',
 })
