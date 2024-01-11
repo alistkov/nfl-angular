@@ -1,2 +1,10 @@
+<nfl-error-alert class="mb-5 block">
+  <p class="font-bold">Warning!</p>
+  <p>Tables do not take into account additional indicators in case of equal victories.</p>
+  <p>The current standings can be found on the <a href="https://www.nfl.com/standings/conference/2023/REG"
+      target="_blank"
+      class="font-bold hover:border-b hover:border-red-600 transition-colors ease-in duration-200">official NFL
+      website</a>.</p>
+</nfl-error-alert>
 <nfl-standings-table standingsType="conference" *ngFor="let conference of conferences"
   [standingsTitle]="conference.title"></nfl-standings-table>
