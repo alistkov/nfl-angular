@@ -7,6 +7,11 @@ import { StandingsService } from 'src/app/standings/standings.service';
 import { LoaderComponent } from 'src/app/shared/loader/loader.component';
 import { ErrorAlertComponent } from 'src/app/shared/error-alert/error-alert.component';
 
+interface ReduceAccumulator {
+  winners: Team[],
+  others: Team[]
+}
+
 @Component({
   standalone: true,
   imports: [
@@ -42,23 +47,26 @@ export class StandingsTableComponent {
             throw new Error(Object.values(response.errors)[0])
           }
         }),
-        map((response): Team[] => {
+        map((response) => {
           if (this.standingsType === 'division') {
             return response.response;
           }
-          const teams = response.response.reduce((acc: { winners: Team[], others: Team[] }, team: Team) => {
+          const teams = response.response.reduce((acc: ReduceAccumulator, team: Team): ReduceAccumulator => {
             if (team.position === 1) {
               return {
                 ...acc,
-                winners: [...acc.winners, team].sort(this.sortByPtc.bind(this)),
+                winners: [...acc.winners, team],
               }
             }
             return {
               ...acc,
-              others: [...acc.others, team].sort(this.sortByPtc.bind(this)),
+              others: [...acc.others, team],
             }
           }, { winners: [], others: [] });
-          return [...teams.winners, ...teams.others];
+          return [
+            ...teams.winners.sort(this.sortByPtc.bind(this)),
+            ...teams.others.sort(this.sortByPtc.bind(this))
+          ];
         })
       )
       .subscribe({
