@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ConferenceStandings, DivisionStandings } from '../shared/types';
+
+import { ConferenceStandings, DivisionStandings } from 'src/app/shared/types';
 
 @Injectable({
   providedIn: 'root'
