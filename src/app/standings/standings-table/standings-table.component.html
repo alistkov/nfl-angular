@@ -26,7 +26,10 @@
     </ng-template>
   </tr>
   <tr *ngIf="loading">
-    <td class="px-[20px] py-[15px] text-xs text-center" colspan="15">Loading...</td>
+    <td class="font-normal border-b border-gray-mid px-[20px] py-[10px] border-r-2"></td>
+    <td class=" px-[20px] py-[15px] text-xs text-center" colspan="14">
+      <nfl-loader></nfl-loader>
+    </td>
   </tr>
   <tr *ngIf="error">
     <td class="px-[20px] py-[15px] text-xs" colspan="15">

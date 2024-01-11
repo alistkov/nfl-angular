@@ -1,12 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { tap } from 'rxjs';
-import { Team } from 'src/app/shared/types';
-import { StandingsService } from '../standings.service';
 import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
+import { tap } from 'rxjs';
+
+import { Team } from 'src/app/shared/types';
+import { StandingsService } from 'src/app/standings/standings.service';
+import { LoaderComponent } from 'src/app/shared/loader/loader.component';
 
 @Component({
   standalone: true,
-  imports: [NgIf, NgFor, UpperCasePipe],
+  imports: [NgIf, NgFor, UpperCasePipe, LoaderComponent],
   selector: 'nfl-standings-table',
   templateUrl: './standings-table.component.html',
 })
