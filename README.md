@@ -1,27 +1,34 @@
-# NflApp
+# NFL Angular app
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.10.
+## About
 
-## Development server
+The project was created to provide information about the standings, the position of teams in divisions and conferences, and information about teams and players in the National Football League (NFL).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This project is designed to develop my skills in Angular framework
 
-## Code scaffolding
+## Technology and tools
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Angular
+2. TypeScript
+3. Tailwind CSS
+4. [API source](https://api-sports.io/documentation/nfl/v1)
 
-## Build
+## Project startup
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clone repository
 
-## Running unit tests
+```
+https://github.com/alistkov/nfl-angular.git
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. Install dependencies
 
-## Running end-to-end tests
+```
+npm install
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+3. Start a project
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+npm run start
+```
